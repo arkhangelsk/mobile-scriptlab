@@ -14,8 +14,8 @@ const MenuScreen = ({ username, onLogout, onMenuItemPress }) => {
     { id: 1, title: 'Forms & Inputs', icon: '📝' },
     { id: 2, title: 'Shopping Cart', icon: '🛒' },
     { id: 3, title: 'UI Components', icon: '🎨' },
-    { id: 4, title: 'File Handling', icon: '📁' },
-    { id: 5, title: 'Alerts & Notification', icon: '🔔' },
+    { id: 4, title: 'Swipe', icon: '👆' },
+    { id: 5, title: 'Drag', icon: '✋' },
   ];
 
   const handleMenuPress = item => {
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   logoutButton: {
-    backgroundColor: '#EF4444',
+    backgroundColor: '#000000',
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 6,

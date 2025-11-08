@@ -185,10 +185,16 @@ const ShoppingCart = ({ onBack }) => {
               {filteredProducts.map(product => (
                 <View key={product.id} style={styles.productCard}>
                   <Text style={styles.productImage}>{product.image}</Text>
-                  <Text style={styles.productName} testID={`product-${product.id}-name`}>
+                  <Text
+                    style={styles.productName}
+                    testID={`product-${product.id}-name`}
+                  >
                     {product.name}
                   </Text>
-                  <Text style={styles.productPrice} testID={`product-${product.id}-price`}>
+                  <Text
+                    style={styles.productPrice}
+                    testID={`product-${product.id}-price`}
+                  >
                     ${product.price.toFixed(2)}
                   </Text>
                   <TouchableOpacity
@@ -227,10 +233,16 @@ const ShoppingCart = ({ onBack }) => {
                   <View key={item.id} style={styles.cartItem}>
                     <Text style={styles.cartItemImage}>{item.image}</Text>
                     <View style={styles.cartItemDetails}>
-                      <Text style={styles.cartItemName} testID={`cart-item-${item.id}-name`}>
+                      <Text
+                        style={styles.cartItemName}
+                        testID={`cart-item-${item.id}-name`}
+                      >
                         {item.name}
                       </Text>
-                      <Text style={styles.cartItemPrice} testID={`cart-item-${item.id}-price`}>
+                      <Text
+                        style={styles.cartItemPrice}
+                        testID={`cart-item-${item.id}-price`}
+                      >
                         ${item.price.toFixed(2)}
                       </Text>
                     </View>
@@ -242,7 +254,10 @@ const ShoppingCart = ({ onBack }) => {
                       >
                         <Text style={styles.quantityButtonText}>−</Text>
                       </TouchableOpacity>
-                      <Text style={styles.quantityText} testID={`quantity-${item.id}`}>
+                      <Text
+                        style={styles.quantityText}
+                        testID={`quantity-${item.id}`}
+                      >
                         {item.quantity}
                       </Text>
                       <TouchableOpacity
@@ -282,7 +297,9 @@ const ShoppingCart = ({ onBack }) => {
                         onPress={removeCoupon}
                         testID="removeCouponButton"
                       >
-                        <Text style={styles.removeCouponButtonText}>Remove</Text>
+                        <Text style={styles.removeCouponButtonText}>
+                          Remove
+                        </Text>
                       </TouchableOpacity>
                     ) : (
                       <TouchableOpacity
@@ -295,7 +312,10 @@ const ShoppingCart = ({ onBack }) => {
                     )}
                   </View>
                   {appliedCoupon && (
-                    <Text style={styles.couponApplied} testID="appliedCouponText">
+                    <Text
+                      style={styles.couponApplied}
+                      testID="appliedCouponText"
+                    >
                       ✓ {appliedCoupon.description} applied
                     </Text>
                   )}
@@ -383,7 +403,7 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontSize: 16,
-    color: '#007AFF',
+    color: '#000000',
     fontWeight: '600',
   },
   headerTitle: {
@@ -392,7 +412,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   cartBadge: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#000000',
     borderRadius: 12,
     width: 24,
     height: 24,
@@ -480,11 +500,11 @@ const styles = StyleSheet.create({
   productPrice: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: '#000000',
     marginBottom: 12,
   },
   addButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#000000',
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 6,
@@ -596,7 +616,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   applyCouponButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#000000',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 6,
@@ -672,10 +692,10 @@ const styles = StyleSheet.create({
   totalValue: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: '#000000',
   },
   checkoutButton: {
-    backgroundColor: '#34C759',
+    backgroundColor: '#000000',
     paddingVertical: 16,
     borderRadius: 8,
     marginHorizontal: 16,

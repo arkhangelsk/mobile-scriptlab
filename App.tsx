@@ -10,6 +10,9 @@ import Inputs from './components/SigninScreen';
 import MenuScreen from './components/MenuScreen';
 import UserRegistrationForm from './components/UserRegistrationForm';
 import ShoppingCart from './components/ShoppingCart';
+import UIComponents from './components/UIComponents';
+import SwipeScreen from './components/SwipeScreen';
+import DragScreen from './components/DragScreen';
 import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -49,6 +52,12 @@ function AppContent() {
       setCurrentScreen('registration-form');
     } else if (item.title === 'Shopping Cart') {
       setCurrentScreen('shopping-cart');
+    } else if (item.title === 'UI Components') {
+      setCurrentScreen('ui-components');
+    } else if (item.title === 'Swipe') {
+      setCurrentScreen('swipe');
+    } else if (item.title === 'Drag') {
+      setCurrentScreen('drag');
     } else {
       // For other menu items, you can add more screens later
       setCurrentScreen('menu');
@@ -69,6 +78,12 @@ function AppContent() {
         return <UserRegistrationForm onBack={handleBackToMenu} />;
       case 'shopping-cart':
         return <ShoppingCart onBack={handleBackToMenu} />;
+      case 'ui-components':
+        return <UIComponents onBack={handleBackToMenu} />;
+      case 'swipe':
+        return <SwipeScreen onBack={handleBackToMenu} />;
+      case 'drag':
+        return <DragScreen onBack={handleBackToMenu} />;
       case 'menu':
       default:
         return (

@@ -626,7 +626,7 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontSize: 16,
-    color: '#00458B',
+    color: '#000000',
     fontWeight: '600',
   },
   headerTitle: {
@@ -753,7 +753,7 @@ const styles = StyleSheet.create({
   },
   dropdownItemTextSelected: {
     fontWeight: '600',
-    color: '#00458B',
+    color: '#000000',
   },
   radioGroup: {
     flexDirection: 'row',
@@ -770,7 +770,7 @@ const styles = StyleSheet.create({
     height: 20,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#00458B',
+    borderColor: '#000000',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 8,
@@ -779,7 +779,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: '#00458B',
+    backgroundColor: '#000000',
   },
   radioLabel: {
     fontSize: 14,
@@ -800,14 +800,14 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderWidth: 2,
-    borderColor: '#00458B',
+    borderColor: '#000000',
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 8,
   },
   checkmark: {
-    color: '#00458B',
+    color: '#000000',
     fontSize: 14,
     fontWeight: 'bold',
   },
@@ -821,7 +821,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   submitButton: {
-    backgroundColor: '#00458B',
+    backgroundColor: '#000000',
     paddingVertical: 14,
     borderRadius: 6,
     alignItems: 'center',
@@ -838,10 +838,10 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#00458B',
+    borderColor: '#000000',
   },
   resetButtonText: {
-    color: '#00458B',
+    color: '#000000',
     fontSize: 16,
     fontWeight: 'bold',
   },
