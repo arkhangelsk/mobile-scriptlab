@@ -44,7 +44,7 @@ const AboutScreen = () => {
             <Text style={styles.sectionTitle}>Contact</Text>
             <Text style={styles.text}>
               For feedback and suggestions, please reach out through the app's
-              feedback section.
+              connect section.
             </Text>
           </View>
         </View>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#2196F3',
+    color: '#333',
     marginBottom: 8,
   },
   text: {

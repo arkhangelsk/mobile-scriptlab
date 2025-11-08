@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
@@ -22,9 +23,10 @@ const ProfileScreen = ({ username, onLogout, navigation }) => {
         >
           <View style={styles.profileCard}>
             <View style={styles.avatarContainer}>
-              <Text style={styles.avatarText}>
-                {username.charAt(0).toUpperCase()}
-              </Text>
+              <Image
+                source={require('../images/logo.png')}
+                style={styles.logoImage}
+              />
             </View>
             <Text style={styles.username}>{username}</Text>
             <Text style={styles.userRole}>Mobile Automation Practice Hub</Text>
@@ -129,6 +131,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
+    overflow: 'hidden',
+  },
+  logoImage: {
+    width: 80,
+    height: 80,
   },
   avatarText: {
     fontSize: 32,

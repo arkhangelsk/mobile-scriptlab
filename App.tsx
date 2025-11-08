@@ -104,7 +104,12 @@ function ProfileStackScreen({
   handleLogout: () => void;
 }) {
   return (
-    <ProfileStack.Navigator screenOptions={{ headerShown: false }}>
+    <ProfileStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        headerTintColor: '#000000',
+      }}
+    >
       <ProfileStack.Screen name="Back">
         {props => (
           <ProfileScreen
