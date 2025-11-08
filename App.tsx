@@ -16,6 +16,8 @@ import ChallengesScreen from './components/ChallengesScreen';
 import LearnScreen from './components/LearnScreen';
 import ProfileScreen from './components/ProfileScreen';
 import AboutScreen from './components/AboutScreen';
+import PrivacyScreen from './components/PrivacyScreen';
+import ConnectScreen from './components/ConnectScreen';
 import UserRegistrationForm from './components/UserRegistrationForm';
 import ShoppingCart from './components/ShoppingCart';
 import UIComponents from './components/UIComponents';
@@ -103,7 +105,7 @@ function ProfileStackScreen({
 }) {
   return (
     <ProfileStack.Navigator screenOptions={{ headerShown: false }}>
-      <ProfileStack.Screen name="ProfileMain">
+      <ProfileStack.Screen name="Back">
         {props => (
           <ProfileScreen
             {...props}
@@ -112,6 +114,16 @@ function ProfileStackScreen({
           />
         )}
       </ProfileStack.Screen>
+      <ProfileStack.Screen
+        name="Privacy"
+        component={PrivacyScreen}
+        options={{ headerShown: true, title: 'Privacy Policy' }}
+      />
+      <ProfileStack.Screen
+        name="Connect"
+        component={ConnectScreen}
+        options={{ headerShown: true, title: 'Connect' }}
+      />
       <ProfileStack.Screen
         name="About"
         component={AboutScreen}
@@ -177,8 +189,8 @@ function TabNavigator({
       <Tab.Screen
         name="Profile"
         options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: () => <Text style={{ fontSize: 24 }}>👤</Text>,
+          tabBarLabel: 'More',
+          tabBarIcon: () => <Text style={{ fontSize: 24 }}>⋯</Text>,
         }}
       >
         {props => (

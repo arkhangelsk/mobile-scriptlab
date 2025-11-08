@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 
@@ -8,7 +14,7 @@ const ProfileScreen = ({ username, onLogout, navigation }) => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Profile</Text>
+          <Text style={styles.headerTitle}>More</Text>
         </View>
         <ScrollView
           style={styles.content}
@@ -25,20 +31,22 @@ const ProfileScreen = ({ username, onLogout, navigation }) => {
           </View>
 
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Account</Text>
-            <TouchableOpacity style={styles.menuItem}>
-              <Text style={styles.menuItemText}>Edit Profile</Text>
-              <Text style={styles.menuArrow}>›</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
-              <Text style={styles.menuItemText}>Settings</Text>
-              <Text style={styles.menuArrow}>›</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.menuItem}>
+            <Text style={styles.sectionTitle}>Options</Text>
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => navigation.navigate('Privacy')}
+            >
               <Text style={styles.menuItemText}>Privacy</Text>
               <Text style={styles.menuArrow}>›</Text>
             </TouchableOpacity>
-            <TouchableOpacity 
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={() => navigation.navigate('Connect')}
+            >
+              <Text style={styles.menuItemText}>Connect</Text>
+              <Text style={styles.menuArrow}>›</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
               style={styles.menuItem}
               onPress={() => navigation.navigate('About')}
             >
