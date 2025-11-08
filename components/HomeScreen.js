@@ -4,26 +4,11 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 
-const HomeScreen = ({ username, navigation }) => {
-  const menuItems = [
-    { id: 1, title: 'Forms & Inputs', icon: '📝', screen: 'RegistrationForm' },
-    { id: 2, title: 'Shopping Cart', icon: '🛒', screen: 'ShoppingCart' },
-    { id: 3, title: 'UI Components', icon: '🎨', screen: 'UIComponents' },
-    { id: 4, title: 'Swipe', icon: '👆', screen: 'Swipe' },
-    { id: 5, title: 'Drag', icon: '✋', screen: 'Drag' },
-  ];
-
-  const handleMenuPress = item => {
-    if (navigation && item.screen) {
-      navigation.navigate(item.screen);
-    }
-  };
-
+const HomeScreen = ({ username }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -35,25 +20,18 @@ const HomeScreen = ({ username, navigation }) => {
           </View>
         </View>
 
-        {/* Menu Items */}
+        {/* Content */}
         <ScrollView
-          style={styles.menuContainer}
-          contentContainerStyle={styles.menuContent}
-          showsVerticalScrollIndicator={false}
+          style={styles.content}
+          contentContainerStyle={styles.contentContainer}
         >
-          {menuItems.map(item => (
-            <TouchableOpacity
-              key={item.id}
-              style={styles.menuItem}
-              onPress={() => handleMenuPress(item)}
-              testID={`menuItem-${item.id}`}
-              accessibilityLabel={`${item.title} menu option`}
-            >
-              <Text style={styles.menuIcon}>{item.icon}</Text>
-              <Text style={styles.menuItemText}>{item.title}</Text>
-              <Text style={styles.menuArrow}>›</Text>
-            </TouchableOpacity>
-          ))}
+          <View style={styles.welcomeCard}>
+            <Text style={styles.welcomeIcon}>🏠</Text>
+            <Text style={styles.welcomeTitle}>Welcome to ScriptLab</Text>
+            <Text style={styles.welcomeText}>
+              Navigate to the Practice tab to start your automation exercises
+            </Text>
+          </View>
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -62,11 +40,6 @@ const HomeScreen = ({ username, navigation }) => {
 
 HomeScreen.propTypes = {
   username: PropTypes.string.isRequired,
-  navigation: PropTypes.object,
-};
-
-HomeScreen.defaultProps = {
-  navigation: null,
 };
 
 export default HomeScreen;
@@ -99,55 +72,45 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     marginTop: 4,
   },
-  logoutButton: {
-    backgroundColor: '#000000',
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 6,
-  },
-  logoutButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  menuContainer: {
+  content: {
     flex: 1,
   },
-  menuContent: {
+  contentContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
-  menuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  welcomeCard: {
     backgroundColor: '#FFFFFF',
-    paddingVertical: 20,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    marginBottom: 12,
+    padding: 32,
+    borderRadius: 16,
+    alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 2,
     },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-    elevation: 2,
-    borderWidth: 1,
-    borderColor: '#F3F4F6',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    maxWidth: 400,
   },
-  menuIcon: {
+  welcomeIcon: {
+    fontSize: 64,
+    marginBottom: 20,
+  },
+  welcomeTitle: {
     fontSize: 24,
-    marginRight: 16,
-  },
-  menuItemText: {
-    flex: 1,
-    fontSize: 18,
-    fontWeight: '500',
+    fontWeight: 'bold',
     color: '#1F2937',
+    marginBottom: 12,
+    textAlign: 'center',
   },
-  menuArrow: {
-    fontSize: 28,
-    color: '#9CA3AF',
-    fontWeight: '300',
+  welcomeText: {
+    fontSize: 16,
+    color: '#6B7280',
+    textAlign: 'center',
+    lineHeight: 24,
   },
 });

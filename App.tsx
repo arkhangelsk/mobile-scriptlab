@@ -25,6 +25,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
+const PracticeStack = createNativeStackNavigator();
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -43,43 +44,51 @@ function HomeStackScreen({ username }: { username: string }) {
       <HomeStack.Screen name="HomeMain">
         {props => <HomeScreen {...props} username={username} />}
       </HomeStack.Screen>
-      <HomeStack.Screen
+    </HomeStack.Navigator>
+  );
+}
+
+function PracticeStackScreen() {
+  return (
+    <PracticeStack.Navigator screenOptions={{ headerShown: false }}>
+      <PracticeStack.Screen name="PracticeMain" component={PracticeScreen} />
+      <PracticeStack.Screen
         name="RegistrationForm"
         options={{ headerShown: true, title: 'Forms & Inputs' }}
       >
         {({ navigation }) => (
           <UserRegistrationForm onBack={() => navigation.goBack()} />
         )}
-      </HomeStack.Screen>
-      <HomeStack.Screen
+      </PracticeStack.Screen>
+      <PracticeStack.Screen
         name="ShoppingCart"
         options={{ headerShown: true, title: 'Shopping Cart' }}
       >
         {({ navigation }) => (
           <ShoppingCart onBack={() => navigation.goBack()} />
         )}
-      </HomeStack.Screen>
-      <HomeStack.Screen
+      </PracticeStack.Screen>
+      <PracticeStack.Screen
         name="UIComponents"
         options={{ headerShown: true, title: 'UI Components' }}
       >
         {({ navigation }) => (
           <UIComponents onBack={() => navigation.goBack()} />
         )}
-      </HomeStack.Screen>
-      <HomeStack.Screen
+      </PracticeStack.Screen>
+      <PracticeStack.Screen
         name="Swipe"
         options={{ headerShown: true, title: 'Swipe' }}
       >
         {({ navigation }) => <SwipeScreen onBack={() => navigation.goBack()} />}
-      </HomeStack.Screen>
-      <HomeStack.Screen
+      </PracticeStack.Screen>
+      <PracticeStack.Screen
         name="Drag"
         options={{ headerShown: true, title: 'Drag' }}
       >
         {({ navigation }) => <DragScreen onBack={() => navigation.goBack()} />}
-      </HomeStack.Screen>
-    </HomeStack.Navigator>
+      </PracticeStack.Screen>
+    </PracticeStack.Navigator>
   );
 }
 
@@ -126,7 +135,7 @@ function AppContent() {
         </Tab.Screen>
         <Tab.Screen
           name="Practice"
-          component={PracticeScreen}
+          component={PracticeStackScreen}
           options={{
             tabBarLabel: 'Practice',
             tabBarIcon: () => <Text style={{ fontSize: 24 }}>🎯</Text>,
