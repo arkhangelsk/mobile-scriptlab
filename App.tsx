@@ -15,6 +15,7 @@ import PracticeScreen from './components/PracticeScreen';
 import ChallengesScreen from './components/ChallengesScreen';
 import LearnScreen from './components/LearnScreen';
 import ProfileScreen from './components/ProfileScreen';
+import AboutScreen from './components/AboutScreen';
 import UserRegistrationForm from './components/UserRegistrationForm';
 import ShoppingCart from './components/ShoppingCart';
 import UIComponents from './components/UIComponents';
@@ -26,6 +27,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 const PracticeStack = createNativeStackNavigator();
+const ProfileStack = createNativeStackNavigator();
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -92,6 +94,105 @@ function PracticeStackScreen() {
   );
 }
 
+function ProfileStackScreen({
+  username,
+  handleLogout,
+}: {
+  username: string;
+  handleLogout: () => void;
+}) {
+  return (
+    <ProfileStack.Navigator screenOptions={{ headerShown: false }}>
+      <ProfileStack.Screen name="ProfileMain">
+        {props => (
+          <ProfileScreen
+            {...props}
+            username={username}
+            onLogout={handleLogout}
+          />
+        )}
+      </ProfileStack.Screen>
+      <ProfileStack.Screen
+        name="About"
+        component={AboutScreen}
+        options={{ headerShown: true, title: 'About' }}
+      />
+    </ProfileStack.Navigator>
+  );
+}
+
+function TabNavigator({
+  username,
+  handleLogout,
+}: {
+  username: string;
+  handleLogout: () => void;
+}) {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: '#007AFF',
+        tabBarInactiveTintColor: '#8E8E93',
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',
+          borderTopWidth: 1,
+          borderTopColor: '#E5E5EA',
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: () => <Text style={{ fontSize: 24 }}>🏠</Text>,
+        }}
+      >
+        {props => <HomeStackScreen {...props} username={username} />}
+      </Tab.Screen>
+      <Tab.Screen
+        name="Practice"
+        component={PracticeStackScreen}
+        options={{
+          tabBarLabel: 'Practice',
+          tabBarIcon: () => <Text style={{ fontSize: 24 }}>🎯</Text>,
+        }}
+      />
+      <Tab.Screen
+        name="Challenges"
+        component={ChallengesScreen}
+        options={{
+          tabBarLabel: 'Challenges',
+          tabBarIcon: () => <Text style={{ fontSize: 24 }}>🏆</Text>,
+        }}
+      />
+      <Tab.Screen
+        name="Learn"
+        component={LearnScreen}
+        options={{
+          tabBarLabel: 'Learn',
+          tabBarIcon: () => <Text style={{ fontSize: 24 }}>📚</Text>,
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: () => <Text style={{ fontSize: 24 }}>👤</Text>,
+        }}
+      >
+        {props => (
+          <ProfileStackScreen
+            {...props}
+            username={username}
+            handleLogout={handleLogout}
+          />
+        )}
+      </Tab.Screen>
+    </Tab.Navigator>
+  );
+}
+
 function AppContent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
@@ -112,67 +213,7 @@ function AppContent() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarActiveTintColor: '#007AFF',
-          tabBarInactiveTintColor: '#8E8E93',
-          tabBarStyle: {
-            backgroundColor: '#FFFFFF',
-            borderTopWidth: 1,
-            borderTopColor: '#E5E5EA',
-          },
-        }}
-      >
-        <Tab.Screen
-          name="Home"
-          options={{
-            tabBarLabel: 'Home',
-            tabBarIcon: () => <Text style={{ fontSize: 24 }}>🏠</Text>,
-          }}
-        >
-          {props => <HomeStackScreen {...props} username={username} />}
-        </Tab.Screen>
-        <Tab.Screen
-          name="Practice"
-          component={PracticeStackScreen}
-          options={{
-            tabBarLabel: 'Practice',
-            tabBarIcon: () => <Text style={{ fontSize: 24 }}>🎯</Text>,
-          }}
-        />
-        <Tab.Screen
-          name="Challenges"
-          component={ChallengesScreen}
-          options={{
-            tabBarLabel: 'Challenges',
-            tabBarIcon: () => <Text style={{ fontSize: 24 }}>🏆</Text>,
-          }}
-        />
-        <Tab.Screen
-          name="Learn"
-          component={LearnScreen}
-          options={{
-            tabBarLabel: 'Learn',
-            tabBarIcon: () => <Text style={{ fontSize: 24 }}>📚</Text>,
-          }}
-        />
-        <Tab.Screen
-          name="Profile"
-          options={{
-            tabBarLabel: 'Profile',
-            tabBarIcon: () => <Text style={{ fontSize: 24 }}>👤</Text>,
-          }}
-        >
-          {props => (
-            <ProfileScreen
-              {...props}
-              username={username}
-              onLogout={handleLogout}
-            />
-          )}
-        </Tab.Screen>
-      </Tab.Navigator>
+      <TabNavigator username={username} handleLogout={handleLogout} />
     </NavigationContainer>
   );
 }

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
 
-const ProfileScreen = ({ username, onLogout }) => {
+const ProfileScreen = ({ username, onLogout, navigation }) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -21,7 +21,7 @@ const ProfileScreen = ({ username, onLogout }) => {
               </Text>
             </View>
             <Text style={styles.username}>{username}</Text>
-            <Text style={styles.userRole}>Test Automation Engineer</Text>
+            <Text style={styles.userRole}>Mobile Automation Practice Hub</Text>
           </View>
 
           <View style={styles.section}>
@@ -36,6 +36,13 @@ const ProfileScreen = ({ username, onLogout }) => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.menuItem}>
               <Text style={styles.menuItemText}>Privacy</Text>
+              <Text style={styles.menuArrow}>›</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.menuItem}
+              onPress={() => navigation.navigate('About')}
+            >
+              <Text style={styles.menuItemText}>About</Text>
               <Text style={styles.menuArrow}>›</Text>
             </TouchableOpacity>
           </View>
@@ -58,10 +65,12 @@ const ProfileScreen = ({ username, onLogout }) => {
 ProfileScreen.propTypes = {
   username: PropTypes.string.isRequired,
   onLogout: PropTypes.func,
+  navigation: PropTypes.object,
 };
 
 ProfileScreen.defaultProps = {
   onLogout: null,
+  navigation: null,
 };
 
 export default ProfileScreen;
