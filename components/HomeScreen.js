@@ -66,7 +66,6 @@ const HomeScreen = ({ username, navigation }) => {
         >
           {/* Hero Section */}
           <View style={styles.heroCard}>
-            <Text style={styles.heroIcon}>🚀</Text>
             <Text style={styles.heroTitle}>ScriptLab Mobile</Text>
             <Text style={styles.heroSubtitle}>
               Master Mobile Test Automation
