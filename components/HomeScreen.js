@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PropTypes from 'prop-types';
@@ -66,6 +67,13 @@ const HomeScreen = ({ username, navigation }) => {
         >
           {/* Hero Section */}
           <View style={styles.heroCard}>
+            <View style={styles.logoContainer}>
+              <Image
+                source={require('../images/logo.png')}
+                style={styles.heroLogo}
+                resizeMode="contain"
+              />
+            </View>
             <Text style={styles.heroTitle}>ScriptLab Mobile</Text>
             <Text style={styles.heroSubtitle}>
               Master Mobile Test Automation
@@ -183,9 +191,19 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
   },
-  heroIcon: {
-    fontSize: 48,
-    marginBottom: 12,
+  logoContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: '#000000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 16,
+    overflow: 'hidden',
+  },
+  heroLogo: {
+    width: 80,
+    height: 80,
   },
   heroTitle: {
     fontSize: 28,
