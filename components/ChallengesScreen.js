@@ -71,7 +71,7 @@ const ChallengesScreen = () => {
           contentContainerStyle={styles.contentContainer}
           showsVerticalScrollIndicator={false}
         >
-          {challengeCategories.map((category) => (
+          {challengeCategories.map(category => (
             <View
               key={category.id}
               style={styles.categoryCard}
@@ -79,9 +79,7 @@ const ChallengesScreen = () => {
             >
               <View style={styles.categoryHeader}>
                 <Text style={styles.categoryIcon}>{category.icon}</Text>
-                <Text style={styles.categoryTitle}>
-                  {category.title}
-                </Text>
+                <Text style={styles.categoryTitle}>{category.title}</Text>
               </View>
               <View style={styles.scenariosList}>
                 {category.scenarios.map((scenario, index) => (

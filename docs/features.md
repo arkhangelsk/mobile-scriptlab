@@ -82,9 +82,9 @@ Educational resources section with curated learning content:
 
 #### Learning Resources (3 Links):
 
-1. **Blog Link** - Software Testing Trends and Tutorials  
+1. **Blog Link** - Software Testing Trends and Tutorials
 2. **YouTube Link** - [Software Testing Trends](https://www.youtube.com/@softwaretestingtrends)
-3.  **YouTube Link** - [Learning Expressway](https://www.youtube.com/@learningexpressway/)
+3. **YouTube Link** - [Learning Expressway](https://www.youtube.com/@learningexpressway/)
 
 **Features:**
 
@@ -207,7 +207,6 @@ Social media and community connections with 4 platforms:
 ### About Screen
 
 App information and features details
-
 
 ## 📱 Application Screens
 
@@ -361,7 +360,6 @@ Interactive image carousel with colored slides:
 2. **Slide 2** 🎭 - Teal (#4ECDC4)
 3. **Slide 3** 🎪 - Blue (#45B7D1)
 4. **Slide 4** 🎡 - Orange (#FFA07A)
-
 
 ---
 

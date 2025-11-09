@@ -47,7 +47,9 @@ function HomeStackScreen({ username }: { username: string }) {
   return (
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="HomeMain">
-        {props => <HomeScreen {...props} username={username} />}
+        {({ navigation }) => (
+          <HomeScreen navigation={navigation} username={username} />
+        )}
       </HomeStack.Screen>
     </HomeStack.Navigator>
   );
