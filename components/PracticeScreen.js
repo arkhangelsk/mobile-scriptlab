@@ -16,6 +16,7 @@ const PracticeScreen = ({ navigation }) => {
     { id: 3, title: 'UI Components', icon: '🎨', screen: 'UIComponents' },
     { id: 4, title: 'Swipe', icon: '👆', screen: 'Swipe' },
     { id: 5, title: 'Drag', icon: '✋', screen: 'Drag' },
+    { id: 6, title: 'Webview', icon: '🌐', screen: 'Webview' },
   ];
 
   const handleMenuPress = item => {

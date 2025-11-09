@@ -30,7 +30,7 @@ After successful login, users have access to 5 main tabs:
 
 ### 2. **Practice** 🎯
 
-Main hub for automation practice exercises with 5 interactive scenarios:
+Main hub for automation practice exercises with 6 interactive scenarios:
 
 #### Available Practice Exercises:
 
@@ -39,6 +39,7 @@ Main hub for automation practice exercises with 5 interactive scenarios:
 3. **UI Components** 🎨 - Component Showcase
 4. **Swipe** 👆 - Swipe Gestures
 5. **Drag** 🔄 - Drag & Drop
+6. **Webview** 🌐 - Web Content Integration
 
 **Navigation:**
 
@@ -432,6 +433,35 @@ Drag and drop interaction practice:
 
 ---
 
+### 8. **Webview Screen**
+
+Web content integration and navigation practice:
+
+#### Features:
+
+- Full-screen WebView component
+- External website loading: [Software Testing Trends](https://softwaretestingtrends.com/)
+- JavaScript enabled for interactive content
+- DOM storage enabled
+- Loading indicator during page load
+- Native navigation support (forward/back)
+- Automatic handling of web links
+- Safe area integration
+
+**Test IDs:**
+
+- `webview` - Main WebView component
+
+**Use Cases:**
+
+- Testing web content within mobile app
+- Practicing hybrid app automation
+- Testing web-to-native interactions
+- Verifying external link handling
+- Testing WebView performance and loading states
+
+---
+
 ## 🔧 Technical Stack
 
 - **Framework:** React Native 0.82.1 with New Architecture
@@ -448,6 +478,7 @@ Drag and drop interaction practice:
 - **Date Picker:** @react-native-community/datetimepicker@8.5.0
 - **Gestures:** react-native-gesture-handler@2.29.1
 - **Screens:** react-native-screens@4.18.0
+- **WebView:** react-native-webview@13.16.0
 - **Platform Support:** iOS and Android with platform-specific code
 - **Node Version:** >=20
 - **React:** 19.1.1
@@ -621,7 +652,8 @@ scriptlab/
 │   ├── ShoppingCart.js        # Shopping cart practice
 │   ├── UIComponents.js        # UI components showcase
 │   ├── SwipeScreen.js         # Swipe gestures
-│   └── DragScreen.js          # Drag & drop
+│   ├── DragScreen.js          # Drag & drop
+│   └── WebviewScreen.js       # WebView integration
 ├── images/
 │   ├── logo.png               # App logo
 │   ├── ai-agents.png          # Course thumbnail
@@ -652,7 +684,7 @@ For testing purposes, the sign-in screen accepts a fixed user name & password:
 - [x] Authentication (Sign In)
 - [x] Bottom Tab Navigation (5 tabs)
 - [x] Home Screen (Welcome)
-- [x] Practice Menu (5 exercises)
+- [x] Practice Menu (6 exercises)
 - [x] Learn Tab (Courses & Resources)
 - [x] More Tab (Profile & Options)
 - [x] User Registration Form
@@ -660,6 +692,7 @@ For testing purposes, the sign-in screen accepts a fixed user name & password:
 - [x] UI Components Showcase
 - [x] Swipe Gestures
 - [x] Drag & Drop
+- [x] WebView Integration (External Website)
 - [x] Privacy Policy
 - [x] About Screen
 - [x] Connect (Social Media)

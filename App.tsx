@@ -23,6 +23,7 @@ import ShoppingCart from './components/ShoppingCart';
 import UIComponents from './components/UIComponents';
 import SwipeScreen from './components/SwipeScreen';
 import DragScreen from './components/DragScreen';
+import WebviewScreen from './components/WebviewScreen';
 import { StatusBar, useColorScheme, Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -92,6 +93,11 @@ function PracticeStackScreen() {
       >
         {({ navigation }) => <DragScreen onBack={() => navigation.goBack()} />}
       </PracticeStack.Screen>
+      <PracticeStack.Screen
+        name="Webview"
+        component={WebviewScreen}
+        options={{ headerShown: true, title: 'Webview' }}
+      />
     </PracticeStack.Navigator>
   );
 }
