@@ -4,46 +4,234 @@ A comprehensive React Native mobile application designed for practicing test aut
 
 ---
 
+## 📱 Application Architecture
+
+### Navigation Structure
+
+- **Authentication Layer**: Sign-in screen
+- **Main Navigation**: Bottom Tab Navigator with 5 tabs
+- **Nested Navigation**: Stack navigators for complex flows
+- **Platform Support**: iOS and Android with platform-specific optimizations
+
+---
+
+## 🏠 Bottom Tab Navigation (Post-Login)
+
+After successful login, users have access to 5 main tabs:
+
+### 1. **Home** 🏠
+
+- Welcome screen with app branding
+- User greeting with username display
+- Navigation prompt to Practice tab
+- Clean, minimal design
+
+---
+
+### 2. **Practice** 🎯
+
+Main hub for automation practice exercises with 5 interactive scenarios:
+
+#### Available Practice Exercises:
+
+1. **Forms & Inputs** 📝 - User Registration Form
+2. **Shopping Cart** 🛒 - E-commerce Flow
+3. **UI Components** 🎨 - Component Showcase
+4. **Swipe** 👆 - Swipe Gestures
+5. **Drag** 🔄 - Drag & Drop
+
+**Navigation:**
+
+- Grid layout with clickable cards
+- Each card navigates to respective practice screen
+- Back navigation to return to practice menu
+
+---
+
+### 3. **Challenges** 🏆
+
+- Placeholder for future automation challenges
+- Coming soon message
+- Reserved for test automation scenarios
+
+---
+
+### 4. **Learn** 📚
+
+Educational resources section with curated learning content:
+
+#### Udemy Courses (3 Featured):
+
+1. **Roadmap to become a test automation engineer**
+
+   - Test automation fundamentals
+   - Course image thumbnail
+   - External link to Udemy course
+
+2. **Generative AI Course**
+
+   - AI/ML fundamentals and applications
+   - Course image thumbnail
+   - External link to Udemy course
+
+3. **AI Agents**
+   - Building intelligent AI agents
+   - Course image thumbnail
+   - External link to Udemy course
+
+#### Learning Resources (3 Links):
+
+1. **Blog Link** - Software Testing Trends and Tutorials  
+2. **YouTube Link** - [Software Testing Trends](https://www.youtube.com/@softwaretestingtrends)
+3.  **YouTube Link** - [Learning Expressway](https://www.youtube.com/@learningexpressway/)
+
+**Features:**
+
+- Image thumbnails for courses
+- Clickable cards for external links
+- Scrollable content view
+
+---
+
+### 5. **More** ⋯
+
+User profile and app information hub:
+
+#### User Profile Section:
+
+- Logo display (black circular background)
+- Username: "scriptlab"
+- Tagline: "Mobile Automation Practice Hub"
+
+#### Options Menu:
+
+1. **Privacy** 🔒
+
+   - Navigate to Privacy Policy screen
+   - Comprehensive privacy information
+
+2. **Connect** 🌐
+
+   - Social media links
+   - Community connection options
+
+3. **About** ℹ️
+
+   - App information
+   - Version details
+   - Features overview
+
+4. **Logout** 🚪
+   - Sign out functionality
+   - Returns to login screen
+
+---
+
+## 📄 Additional Screens (Nested Navigation)
+
+### Privacy Policy Screen
+
+Comprehensive privacy policy with 8 sections:
+
+1. **Information We Collect**
+
+   - Types of data collected
+   - Collection methods
+
+2. **How We Use Your Information**
+
+   - Data usage purposes
+   - Processing activities
+
+3. **Information Sharing**
+
+   - Third-party sharing policies
+   - Data transfer conditions
+
+4. **Data Security**
+
+   - Security measures
+   - Protection protocols
+
+5. **Your Rights**
+
+   - User data rights
+   - Access and deletion
+
+6. **Cookies and Tracking**
+
+   - Cookie usage
+   - Tracking technologies
+
+7. **Children's Privacy**
+
+   - Age restrictions
+   - Parental consent
+
+8. **Contact Us**
+   - Support contact information
+   - Privacy inquiries
+
+---
+
+### Connect Screen
+
+Social media and community connections with 4 platforms:
+
+1. **Medium** 📝
+
+   - Blog and articles
+   - URL: [Medium](https://medium.com/@ambysan)
+   - Link icon for external navigation
+
+2. **X (Twitter)** 🐦
+
+   - Social updates
+   - URL: [X (Twitter)](https://x.com/ambysan)
+   - Link icon for external navigation
+
+3. **LinkedIn** 💼
+
+   - Professional network
+   - URL: [LinkedIn Group](https://www.linkedin.com/groups/14863012/)
+   - Link icon for external navigation
+
+4. **Discord** 💬
+   - Community chat
+   - URL: [Discord](https://discord.gg/Esg4EZDtng)
+   - Link icon for external navigation
+
+---
+
+### About Screen
+
+App information and features details
+
+
 ## 📱 Application Screens
 
 ### 1. **Sign In Screen**
 
 - User authentication entry point
 - Email and password validation
-- Secure password input with toggle visibility
-- Loading state with ActivityIndicator
-- Form validation with error messages
-- Modern UI with centered layout
-
-**Test IDs:**
-
-- `emailInput`, `passwordInput`
-- `loginButton`
-- Form validation states
 
 ---
 
-### 2. **Menu Screen**
+### 2. **Practice Screen (Main Menu)**
 
-Main navigation hub after successful login with the following options:
+Central hub for all automation practice exercises accessible via Practice tab:
 
-#### Available Menu Items:
+#### Available Practice Items:
 
 1. **Forms & Inputs** 📝
 2. **Shopping Cart** 🛒
 3. **UI Components** 🎨
-4. **File Handling** 📁
-5. **Alerts & Notification** 🔔
-
-**Test IDs:**
-
-- `backButton`
-- `logoutButton`
-- Menu item buttons for navigation
+4. **Swipe** �
+5. **Drag** �
 
 ---
 
-## 🎯 Feature Screens
+## 🎯 Practice Exercise Screens
 
 ### 3. **Forms & Inputs - User Registration Form**
 
@@ -77,17 +265,6 @@ A comprehensive registration form with all standard form elements:
 
 - **Submit Registration** - Validates all fields and shows success alert
 - **Reset Form** - Clears all form data
-
-**Test IDs:**
-
-- `firstNameInput`, `lastNameInput`, `emailInput`, `passwordInput`, `confirmPasswordInput`
-- `dobInput`, `websiteInput`
-- `countryDropdown`, `country-{countryName}`
-- `experienceLevel-{level}`
-- `skill-{skillName}`
-- `bioInput`
-- `termsCheckbox`, `newsletterCheckbox`
-- `submitButton`, `resetButton`
 
 ---
 
@@ -130,18 +307,6 @@ A fully functional e-commerce shopping cart with product catalog and checkout fl
   - Success message
   - Cart clears after successful checkout
 
-**Test IDs:**
-
-- `searchInput`
-- `product-{id}-name`, `product-{id}-price`
-- `addToCart-{id}`
-- `cart-item-{id}-name`, `cart-item-{id}-price`
-- `increase-{id}`, `decrease-{id}`, `quantity-{id}`, `remove-{id}`
-- `couponInput`, `applyCouponButton`, `removeCouponButton`, `appliedCouponText`
-- `subtotal`, `discount`, `shipping`, `total`
-- `checkoutButton`, `clearCartButton`
-- `cartItemCount`, `emptyCartMessage`
-
 ---
 
 ### 5. **UI Components**
@@ -155,20 +320,6 @@ A comprehensive showcase of interactive UI components for test automation practi
 - **Warning Modal** ⚠️ - Orange themed with warning message
 - **Info Modal** ℹ️ - Blue themed with information message
 
-Each modal features:
-
-- Overlay background
-- Animated fade-in effect
-- Large emoji icon
-- Title and message text
-- Close button
-
-**Test IDs:**
-
-- `successModalButton`, `errorModalButton`, `warningModalButton`, `infoModalButton`
-- `modal-{type}` (success/error/warning/info)
-- `modalCloseButton`
-
 ---
 
 #### 5.2 Tooltips (3 Instances)
@@ -178,11 +329,6 @@ Each modal features:
 - Positioned below trigger buttons
 - Individual tooltip messages
 
-**Test IDs:**
-
-- `tooltip1Button`, `tooltip2Button`, `tooltip3Button`
-- `tooltip1`, `tooltip2`, `tooltip3`
-
 ---
 
 #### 5.3 Tabs (3 Tabs)
@@ -190,17 +336,6 @@ Each modal features:
 - **Profile Tab** 👤 - User profile information
 - **Settings Tab** ⚙️ - Configuration options
 - **Messages Tab** 💬 - Conversations view
-
-Features:
-
-- Active state highlighting with bottom border
-- Dynamic content switching
-- Emoji icons with labels
-
-**Test IDs:**
-
-- `tab1`, `tab2`, `tab3`
-- `tab1Content`, `tab2Content`, `tab3Content`
 
 ---
 
@@ -215,18 +350,6 @@ Expandable/collapsible FAQ-style panels:
 3. **What is Appium?**
    - Overview of Appium framework
 
-Features:
-
-- Individual expand/collapse control
-- Plus/minus icon indicators
-- Smooth animations
-- One item expandable at a time
-
-**Test IDs:**
-
-- `accordion-acc1`, `accordion-acc2`, `accordion-acc3`
-- `accordion-{id}-content`
-
 ---
 
 #### 5.5 Carousel (4 Slides)
@@ -238,20 +361,6 @@ Interactive image carousel with colored slides:
 3. **Slide 3** 🎪 - Blue (#45B7D1)
 4. **Slide 4** 🎡 - Orange (#FFA07A)
 
-Features:
-
-- Horizontal swipe navigation
-- Dot indicators (clickable for direct navigation)
-- Slide counter display (e.g., "Slide 1 of 4")
-- Programmatic navigation
-- Paging enabled for smooth scrolling
-
-**Test IDs:**
-
-- `carousel`
-- `slide-{id}` (slide-1 to slide-4)
-- `dot-{index}` (dot-0 to dot-3)
-- `slideIndicator`
 
 ---
 
@@ -262,19 +371,6 @@ iOS-style toggle switches with animated thumb movement:
 1. **Notifications** - Default: OFF
 2. **Dark Mode** - Default: OFF
 3. **Auto Save** - Default: ON
-
-Features:
-
-- Smooth thumb animation on toggle
-- Color change (gray → green when active)
-- Thumb position translation
-- Individual state management
-
-**Test IDs:**
-
-- `notificationsToggle`
-- `darkModeToggle`
-- `autoSaveToggle`
 
 ---
 
@@ -289,13 +385,6 @@ Visual progress indicator with controls:
 - Increase button (+10%)
 - Decrease button (-10%)
 
-**Test IDs:**
-
-- `progressBar`
-- `progressText`
-- `increaseProgress`
-- `decreaseProgress`
-
 ---
 
 #### 5.8 Star Rating
@@ -308,24 +397,60 @@ Interactive 5-star rating system:
 - Rating text display
 - Reset by clicking same star or different star
 
-**Test IDs:**
+---
 
-- `star-1`, `star-2`, `star-3`, `star-4`, `star-5`
-- `ratingText`
+### 6. **Swipe Screen**
+
+Interactive swipe gesture practice area:
+
+#### Features:
+
+- Swipeable card interface
+- Multi-directional swipe detection
+  - Swipe Up ⬆️
+  - Swipe Down ⬇️
+  - Swipe Left ⬅️
+  - Swipe Right ➡️
+- Real-time swipe direction feedback
+- Visual card with gradient background
+- Reset functionality
+
+---
+
+### 7. **Drag Screen**
+
+Drag and drop interaction practice:
+
+#### Features:
+
+- Draggable elements
+- Drop zones
+- Touch gesture handling
+- Position tracking
+- Visual feedback on drag
+- Success/failure states
 
 ---
 
 ## 🔧 Technical Stack
 
-- **Framework:** React Native 0.82.1
+- **Framework:** React Native 0.82.1 with New Architecture
 - **Language:** JavaScript (Components), TypeScript (App.tsx)
+- **Navigation:**
+  - React Navigation v6
+  - @react-navigation/native@6.1.18
+  - @react-navigation/bottom-tabs@6.6.1
+  - @react-navigation/native-stack@6.11.0
 - **UI Components:** React Native core components
 - **State Management:** React Hooks (useState, useRef)
-- **Navigation:** State-based navigation
 - **Type Checking:** PropTypes
-- **Safe Area:** react-native-safe-area-context
-- **Date Picker:** @react-native-community/datetimepicker
+- **Safe Area:** react-native-safe-area-context@5.6.2
+- **Date Picker:** @react-native-community/datetimepicker@8.5.0
+- **Gestures:** react-native-gesture-handler@2.29.1
+- **Screens:** react-native-screens@4.18.0
 - **Platform Support:** iOS and Android with platform-specific code
+- **Node Version:** >=20
+- **React:** 19.1.1
 
 ---
 
@@ -337,20 +462,38 @@ This application is specifically designed for practicing mobile test automation 
 2. **Diverse UI Components** - Wide variety of component types to test
 3. **Form Validation** - Multiple validation scenarios
 4. **State Management** - Dynamic content and state changes
-5. **User Flows** - Complete user journeys (login → menu → features)
+5. **User Flows** - Complete user journeys (login → tabs → practice exercises)
 6. **Platform-Specific Elements** - iOS vs Android differences
 7. **Interactive Elements** - Modals, tooltips, carousels, accordions
 8. **E-commerce Flow** - Shopping cart with calculations and checkout
-9. **Gestures** - Swipe (carousel), tap, scroll
+9. **Gestures** - Swipe, drag, tap, scroll
 10. **Conditional Rendering** - Show/hide elements based on state
+11. **Navigation Testing** - Bottom tabs, stack navigation, back buttons
+12. **External Links** - Deep linking and URL handling
+13. **Multi-screen Flows** - Nested navigation patterns
 
 ---
 
 ## 📋 Automation Testing Scenarios
 
-### Functional Testing:
+### Navigation Testing:
+
+- Tab switching (Home, Practice, Challenges, Learn, More)
+- Stack navigation (Practice exercises, More options)
+- Back button navigation
+- Screen transitions
+- Deep linking to specific screens
+- Nested navigation flows
+
+### Authentication Testing:
 
 - Login with valid/invalid credentials
+- Session management
+- Logout functionality
+- Post-login navigation
+
+### Functional Testing:
+
 - Form validation and submission
 - Shopping cart operations (add, remove, update quantity)
 - Coupon code application
@@ -361,15 +504,27 @@ This application is specifically designed for practicing mobile test automation 
 - Toggle switch state changes
 - Progress bar updates
 - Star rating selection
+- Swipe gesture detection
+- Drag and drop interactions
+
+### Content Testing:
+
+- Learn tab course images and links
+- External URL navigation
+- Social media link validation
+- Privacy policy content display
+- About screen information
 
 ### UI/UX Testing:
 
 - Component visibility
 - Tooltip display
 - Modal animations
-- Active state indicators
+- Active state indicators (tabs, buttons)
 - Dynamic content rendering
 - Platform-specific UI elements
+- Splash screen display
+- Logo rendering
 
 ### Data Validation:
 
@@ -380,61 +535,154 @@ This application is specifically designed for practicing mobile test automation 
 - Coupon code validation
 - Form field requirements
 
-### Navigation Testing:
-
-- Screen transitions
-- Back navigation
-- Menu navigation
-- Logout functionality
-- Deep linking to specific screens
-
 ---
 
 ## 🚀 Getting Started
 
-1. **Installation:**
+### Prerequisites:
+
+- Node.js >= 20
+- npm or yarn
+- Xcode (for iOS development)
+- Android Studio (for Android development)
+- CocoaPods (for iOS dependencies)
+
+### Installation:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <repository-url>
+   cd scriptlab
+   ```
+
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. **iOS Setup:**
+3. **iOS Setup:**
 
    ```bash
-   cd ios && pod install && cd ..
+   cd ios
+   pod install
+   cd ..
    ```
 
-3. **Run on iOS:**
+### Running the App:
+
+1. **Start Metro Bundler:**
 
    ```bash
+   npm start
+   ```
+
+2. **Run on iOS:**
+
+   ```bash
+   npm run ios
+   # or
    npx react-native run-ios
    ```
 
-4. **Run on Android:**
+3. **Run on Android:**
+
    ```bash
+   npm run android
+   # or
    npx react-native run-android
    ```
+
+### Testing:
+
+```bash
+npm test
+```
+
+---
+
+## 📱 App Structure
+
+```
+scriptlab/
+├── App.tsx                     # Main app entry with navigation
+├── components/
+│   ├── SigninScreen.js        # Authentication screen
+│   ├── HomeScreen.js          # Home tab (welcome)
+│   ├── PracticeScreen.js      # Practice tab (menu)
+│   ├── ChallengesScreen.js    # Challenges tab
+│   ├── LearnScreen.js         # Learn tab (courses)
+│   ├── ProfileScreen.js       # More tab (profile)
+│   ├── AboutScreen.js         # About page
+│   ├── PrivacyScreen.js       # Privacy policy
+│   ├── ConnectScreen.js       # Social media links
+│   ├── UserRegistrationForm.js # Forms practice
+│   ├── ShoppingCart.js        # Shopping cart practice
+│   ├── UIComponents.js        # UI components showcase
+│   ├── SwipeScreen.js         # Swipe gestures
+│   └── DragScreen.js          # Drag & drop
+├── images/
+│   ├── logo.png               # App logo
+│   ├── ai-agents.png          # Course thumbnail
+│   ├── generative-ai-course.jpg
+│   └── test-automation.jpg
+├── ios/                       # iOS native code
+├── android/                   # Android native code
+└── docs/
+    ├── features.md            # This file
+    └── getting-started.md     # Setup guide
+```
 
 ---
 
 ## 📱 Test Credentials
 
-For testing purposes, the sign-in screen accepts any valid email format and password (minimum 6 characters).
+For testing purposes, the sign-in screen accepts a fixed user name & password:
+
+- **User Name**: `scriptlab`
+- **Password**: `scriptlab123`
 
 ---
 
-## 🔄 Future Enhancements
+## 🔄 Current Features Summary
 
-- **File Handling** screen implementation
-- **Alerts & Notification** screen implementation
-- Additional form components
-- More complex user flows
-- API integration examples
-- Error handling scenarios
-- Loading states and spinners
-- Pull-to-refresh functionality
-- Infinite scroll lists
+### ✅ Implemented:
+
+- [x] Authentication (Sign In)
+- [x] Bottom Tab Navigation (5 tabs)
+- [x] Home Screen (Welcome)
+- [x] Practice Menu (5 exercises)
+- [x] Learn Tab (Courses & Resources)
+- [x] More Tab (Profile & Options)
+- [x] User Registration Form
+- [x] Shopping Cart with Checkout
+- [x] UI Components Showcase
+- [x] Swipe Gestures
+- [x] Drag & Drop
+- [x] Privacy Policy
+- [x] About Screen
+- [x] Connect (Social Media)
+- [x] Custom Splash Screen
+- [x] Nested Stack Navigation
+- [x] External Link Handling
+- [x] Platform-Specific UI
+
+### 🚧 Planned Features:
+
+- [ ] Challenges Tab Content
+- [ ] File Upload/Download
+- [ ] Alerts & Notifications
+- [ ] Camera Integration
+- [ ] Biometric Authentication
+- [ ] Offline Mode
+- [ ] API Integration Examples
+- [ ] Advanced Gesture Patterns
+- [ ] Accessibility Features
+- [ ] Internationalization (i18n)
 
 ---
 
 _Last Updated: November 8, 2025_
+_Version: 1.0.0_
+_React Native: 0.82.1_
