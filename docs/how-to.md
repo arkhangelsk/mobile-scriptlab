@@ -1,28 +1,16 @@
-- [How to do a full clean rebuild for iOS in React Native CLI projects](#how-to-do-a-full-clean-rebuild-for-ios-in-react-native-cli-projects)
-  - [🧹 **1. Close Metro Bundler and Simulator**](#-1-close-metro-bundler-and-simulator)
-  - [🧽 **2. Clean iOS build cache**](#-2-clean-ios-build-cache)
-  - [🔧 **3. Remove CocoaPods cache and reinstall**](#-3-remove-cocoapods-cache-and-reinstall)
-  - [🧰 **4. Reset Metro Bundler cache**](#-4-reset-metro-bundler-cache)
-  - [🧼 **5. Clean Xcode Derived Data (optional but powerful fix)**](#-5-clean-xcode-derived-data-optional-but-powerful-fix)
-  - [🚀 **6. Rebuild the iOS app**](#-6-rebuild-the-ios-app)
-  - [🩺 **If you still get build errors**](#-if-you-still-get-build-errors)
-- [How to Generate an APK for Android](#how-to-generate-an-apk-for-android)
-  - [📍 **APK file locations**](#-apk-file-locations)
-    - [🧪 **Debug build (quick testing \& automation use)**](#-debug-build-quick-testing--automation-use)
-    - [🚀 **Release build (for distribution or production testing)**](#-release-build-for-distribution-or-production-testing)
-- [How to Generate an IPA for iOS](#how-to-generate-an-ipa-for-ios)
-  - [🧪 **1️⃣ For Appium testing on iOS simulator**](#-1️⃣-for-appium-testing-on-ios-simulator)
-    - [🧭 **Build it**](#-build-it)
-    - [🧩 **Use this in your Appium capabilities**](#-use-this-in-your-appium-capabilities)
-  - [🚀 **2️⃣ For real iOS devices (physical)**](#-2️⃣-for-real-ios-devices-physical)
-    - [🧭 **Build it**](#-build-it-1)
-    - [⚙️ Use in Appium (real device)](#️-use-in-appium-real-device)
-    - [💡 Quick summary](#-quick-summary)
-
-
 # How to do a full clean rebuild for iOS in React Native CLI projects
 
-## 🧹 **1. Close Metro Bundler and Simulator**
+## Quick Clean
+```bash
+cd ios
+xcodebuild clean -scheme scriptlab -configuration Debug -sdk iphonesimulator
+cd ..
+npx react-native run-ios --simulator="iPhone 15 Pro"
+```
+
+## Full Clean:
+
+### 🧹 **1. Close Metro Bundler and Simulator**
 
 Make sure no build or simulator is running.
 
@@ -33,13 +21,13 @@ Make sure no build or simulator is running.
 
 ---
 
-## 🧽 **2. Clean iOS build cache**
+### 🧽 **2. Clean iOS build cache**
 
 From your project root:
 
 ```bash
 cd ios
-xcodebuild clean
+xcodebuild clean -scheme scriptlab -configuration Debug -sdk iphonesimulator
 cd ..
 ```
 
@@ -51,7 +39,7 @@ rm -rf ios/build
 
 ---
 
-## 🔧 **3. Remove CocoaPods cache and reinstall**
+### 🔧 **3. Remove CocoaPods cache**
 
 CocoaPods sometimes caches old native dependencies (like Reanimated or Gesture Handler).
 
@@ -61,7 +49,6 @@ Run the following commands:
 cd ios
 rm -rf Pods Podfile.lock
 pod cache clean --all
-pod install
 cd ..
 ```
 
@@ -69,7 +56,7 @@ If you get permission errors, try `sudo pod cache clean --all`.
 
 ---
 
-## 🧰 **4. Reset Metro Bundler cache**
+### 🧰 **4. Reset Metro Bundler cache**
 
 This ensures JavaScript and Reanimated configs refresh cleanly:
 
@@ -81,7 +68,7 @@ Keep this terminal open while running the app.
 
 ---
 
-## 🧼 **5. Clean Xcode Derived Data (optional but powerful fix)**
+### 🧼 **5. Clean Xcode Derived Data (optional but powerful fix)**
 
 Sometimes stale builds live in Xcode’s derived data folder.
 You can clean it using this command:
@@ -95,13 +82,12 @@ Or via Xcode GUI:
 
 ---
 
-## 🚀 **6. Rebuild the iOS app**
+### 🚀 **6. Rebuild the iOS app**
 
 Finally, run a fresh build:
 
 ```bash
-npx pod-install
-npx react-native run-ios
+npm run ios
 ```
 
 Or, open the project in Xcode (`ios/YourApp.xcworkspace`) and build from there (⌘ + B).
@@ -115,12 +101,9 @@ Run:
 ```bash
 cd ios
 pod deintegrate
-pod install
 cd ..
-npx react-native run-ios
+npm run ios
 ```
-
-Then check your Xcode logs for specific native module errors 
 
 ---
 
@@ -202,21 +185,101 @@ In your React Native project root:
 
 ```bash
 npx react-native run-ios --simulator="iPhone 15 Pro"
+or npm run ios
 ```
 
-✅ After the build completes, your app will be here:
+When you run: `npx react-native run-ios` or `npm run ios`, it uses Xcode’s DerivedData folder (a system-wide cache directory) to store builds. To find the `.app` file, navigate to:
 
 ```
-ios/build/Build/Products/Debug-iphonesimulator/scriptlab.app
+~/Library/Developer/Xcode/DerivedData/
+```
+Each Xcode project gets its own folder there. 
+
+Run this in your terminal from the project root:
+```bash
+find ~/Library/Developer/Xcode/DerivedData -type d -name "scriptlab.app" | grep iphonesimulator
 ```
 
-To full clean and rebuild, you can run:
+You should see a path like:
+
+```bash
+/Users/ambreenkhan/Library/Developer/Xcode/DerivedData/scriptlab-asubftmirsossahdywmqreczzjgv/Build/Products/Debug-iphonesimulator/scriptlab.app
 ```
-cd /Users/ambreenkhan/ambysan/LearningGrid/Automation/mobile-development/scriptlab && \
-rm -rf node_modules && yarn install && \
-rm -rf ios/build ~/Library/Developer/Xcode/DerivedData && \
-npx react-native run-ios --scheme scriptlab --simulator "iPhone 14"
+That’s the real app file you can use for Appium.
+
+Once you find it, copy it to your desired location, e.g.:
+
+```bash
+cp -R "/Users/ambreenkhan/Library/Developer/Xcode/DerivedData/scriptlab-asubftmirsossahdywmqreczzjgv/Build/Products/Debug-iphonesimulator/scriptlab.app" "/Users/ambreenkhan/Downloads/scriptlab-appium-automation/apps/ios/"
+
 ```
+Confirm the copy worked by running:
+
+```bash
+ls /Users/ambreenkhan/Downloads/scriptlab-appium-automation/apps/ios/scriptlab.app
+```
+
+You should see contents like:
+```bash
+__preview.dylib			       LaunchScreen.storyboardc
+_CodeSignature			       PkgInfo
+AppIcon60x60@2x.png		     PrivacyInfo.xcprivacy
+AppIcon76x76@2x~ipad.png	 RCT-Folly_privacy.bundle
+Assets.car			           React-Core_privacy.bundle
+boost_privacy.bundle		   React-cxxreact_privacy.bundle
+Frameworks			           scriptlab
+glog_privacy.bundle		     scriptlab.debug.dylib
+Info.plist
+```
+
+![alt text](./images/ios-app-contents.png)
+
+If you see scriptlab (the binary file), you’re good to go!
+
+Here’s a simple one-liner shell command you can add to your workflow (or even a small script file) that automatically finds the latest simulator build of your app and copies it into your automation repo.
+
+```bash
+cp -R "$(find ~/Library/Developer/Xcode/DerivedData -type d -name 'scriptlab.app' | grep iphonesimulator | sort -r | head -n 1)" ~/Downloads/scriptlab-appium-automation/apps/ios/
+```
+
+**What it does:**
+- Finds all simulator builds of scriptlab.app in DerivedData
+- Picks the latest one
+- Copies it into your Appium automation folder
+
+or Create a reusable shell script
+
+```bash
+#!/bin/bash
+echo "🔍 Finding latest iOS simulator build of scriptlab.app..."
+APP_PATH=$(find ~/Library/Developer/Xcode/DerivedData -type d -name "scriptlab.app" | grep iphonesimulator | sort -r | head -n 1)
+
+if [ -z "$APP_PATH" ]; then
+  echo "❌ Could not find a built scriptlab.app in DerivedData."
+  exit 1
+fi
+
+DEST=~/Downloads/scriptlab-appium-automation/apps/ios/
+
+echo "📦 Copying from:"
+echo "   $APP_PATH"
+echo "➡️  To:"
+echo "   $DEST"
+
+cp -R "$APP_PATH" "$DEST"
+
+echo "✅ Done! scriptlab.app is ready in your automation folder."
+```
+
+Then make it executable once:
+```bash
+chmod +x copy-ios-app.sh
+```
+
+And run anytime:
+```bash
+./copy-ios-app.sh
+``` 
 
 ### 🧩 **Use this in your Appium capabilities**
 
@@ -225,7 +288,7 @@ npx react-native run-ios --scheme scriptlab --simulator "iPhone 14"
   platformName: "iOS",
   deviceName: "iPhone 15",
   platformVersion: "17.0",
-  app: "/Users/ambreenkhan/ambysan/LearningGrid/Automation/mobile-development/scriptlab/ios/build/Build/Products/Debug-iphonesimulator/scriptlab.app",
+  app: "/Users/ambreenkhan/Downloads/scriptlab-appium-automation/apps/ios/scriptlab.app",
   automationName: "XCUITest"
 }
 ```
@@ -281,17 +344,6 @@ ios/build/scriptlab.ipa
 }
 ```
 
----
-
-### 💡 Quick summary
-
-| Platform      | Build Command                                                              | Output          | Appium “app” path                                              |
-| ------------- | -------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------- |
-| Android       | `./gradlew assembleDebug`                                                  | `app-debug.apk` | `android/app/build/outputs/apk/debug/app-debug.apk`            |
-| iOS Simulator | `xcodebuild -scheme scriptlab -sdk iphonesimulator -derivedDataPath build` | `scriptlab.app` | `ios/build/Build/Products/Debug-iphonesimulator/scriptlab.app` |
-| iOS Device    | Archive via Xcode                                                          | `scriptlab.ipa` | `ios/build/scriptlab.ipa`                                      |
-
----
 
 
 
