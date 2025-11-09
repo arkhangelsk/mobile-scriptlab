@@ -210,6 +210,14 @@ npx react-native run-ios --simulator="iPhone 15 Pro"
 ios/build/Build/Products/Debug-iphonesimulator/scriptlab.app
 ```
 
+To full clean and rebuild, you can run:
+```
+cd /Users/ambreenkhan/ambysan/LearningGrid/Automation/mobile-development/scriptlab && \
+rm -rf node_modules && yarn install && \
+rm -rf ios/build ~/Library/Developer/Xcode/DerivedData && \
+npx react-native run-ios --scheme scriptlab --simulator "iPhone 14"
+```
+
 ### 🧩 **Use this in your Appium capabilities**
 
 ```js
