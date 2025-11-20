@@ -85,12 +85,16 @@ const SignInForm = ({ onLogin }) => {
       <View style={styles.logoContainer}>
         <View style={styles.logoCircle}>
           <Image
+            testID="testIDLogoImage"
+            accessibilityLabel="Logo Image"
             source={require('../images/logo.png')}
             style={styles.logoImage}
             resizeMode="contain"
           />
         </View>
-        <Text style={styles.appTitle}>ScriptLab</Text>
+        <Text testID="testIDUserName" style={styles.appTitle}>
+          ScriptLab
+        </Text>
         <Text style={styles.appSubtitle}>Mobile Test Automation</Text>
       </View>
 

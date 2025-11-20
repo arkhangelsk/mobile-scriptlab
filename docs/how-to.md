@@ -1,3 +1,26 @@
+- [How to do a full clean rebuild for iOS in React Native CLI projects](#how-to-do-a-full-clean-rebuild-for-ios-in-react-native-cli-projects)
+  - [Quick Clean](#quick-clean)
+  - [Full Clean:](#full-clean)
+    - [🧹 **1. Close Metro Bundler and Simulator**](#-1-close-metro-bundler-and-simulator)
+    - [🧽 **2. Clean iOS build cache**](#-2-clean-ios-build-cache)
+    - [🔧 **3. Remove CocoaPods cache**](#-3-remove-cocoapods-cache)
+    - [🧰 **4. Reset Metro Bundler cache**](#-4-reset-metro-bundler-cache)
+    - [🧼 **5. Clean Xcode Derived Data (optional but powerful fix)**](#-5-clean-xcode-derived-data-optional-but-powerful-fix)
+    - [🚀 **6. Rebuild the iOS app**](#-6-rebuild-the-ios-app)
+  - [🩺 **If you still get build errors**](#-if-you-still-get-build-errors)
+- [How to Generate an APK for Android](#how-to-generate-an-apk-for-android)
+  - [📍 **APK file locations**](#-apk-file-locations)
+    - [🧪 **Debug build (quick testing \& automation use)**](#-debug-build-quick-testing--automation-use)
+    - [🚀 **Release build (for distribution or production testing)**](#-release-build-for-distribution-or-production-testing)
+- [How to Generate an IPA for iOS](#how-to-generate-an-ipa-for-ios)
+  - [🧪 **1️⃣ For Appium testing on iOS simulator**](#-1️⃣-for-appium-testing-on-ios-simulator)
+    - [🧭 **Build it**](#-build-it)
+    - [🧩 **Use this in your Appium capabilities**](#-use-this-in-your-appium-capabilities)
+  - [🚀 **2️⃣ For real iOS devices (physical)**](#-2️⃣-for-real-ios-devices-physical)
+    - [🧭 **Build it**](#-build-it-1)
+    - [⚙️ Use in Appium (real device)](#️-use-in-appium-real-device)
+
+
 # How to do a full clean rebuild for iOS in React Native CLI projects
 
 ## Quick Clean
